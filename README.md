@@ -22,7 +22,7 @@ In a ractive template, use pheux like so:
 </pheux>
 ```
 
-* [Magic Mode](http://docs.ractivejs.org/latest/magic-mode) must be enabled
+* [Magic](http://docs.ractivejs.org/latest/magic-mode) must be enabled
 
 Cordova
 -------
