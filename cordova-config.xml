@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.pheuxstein.pheuxdemo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Pheux</name>
+    <description>
+        Pheux!
+    </description>
+    <author href="http://brettshwom.com">
+        Brett Shwom
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackupWebStorage" value="local"/><!--by default, icloud backup happens automatically-->
+    <platform name="ios">
+        <icon src="www/icon-120x120.png" width="120" height="120" />
+    </platform>
+
+</widget>

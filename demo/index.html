@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"> 
+<!-- 	<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">-->
+	<link rel="apple-touch-icon" sizes="120x120" href="icon-120x120.png">
+	<!--<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"> 
+	<!--<link rel="apple-touch-startup-image" href="img/l/splash.png">-->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="Pheux">
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='reset.css' type='text/css'>
+	<link rel='stylesheet' href='style.css' type='text/css'>
+	<title>Pheux</title>
+</head>
+<body>
+
+	<div id='container' ontouchmove></div>
+
+	<script src='ractive.js'></script>
+	<script src='pheux.js'></script>
+	<script type='text/template' id='template'>
+<header>
+	Pheuxsters❗
+</header>
+<div class='pheuxters'>
+	<pheux dataTable="{{friends}}" rowHeight="{{rowHeight}}">
+		<div class='row'>
+			<div class='avatar'>
+				{{avatar}}
+			</div>
+			<div class='name'>
+				{{name}}
+			</div>
+		</div>
+	</pheux>
+</div>
+	</script> 	
+
+	<script>
+var friends = [
+	{name : "Joey", avatar:'🐱'},
+	{name : "Akira", avatar : "👱"},
+	{name : "Sally", avatar:'🐱'},
+	{name : "Momo", avatar:'👰'},
+	{name : "Brett", avatar:'🐱'},
+	{name : "Ari", avatar:'👱'},
+	{name : "Sean", avatar:'🐱'},
+	{name : "Steve", avatar:'👰'},
+	{name : "Rebecca", avatar:'🐱'},
+	{name : "Timo", avatar:'👰'},
+	{name : "Vlad", avatar:'🐱'},
+	{name : "Val", avatar:'👱'}
+]
+
+//make some more friends
+
+;(function () {
+	var i
+	for (i=0;i<7; i++) { friends = friends.concat(friends) }
+})()
+
+console.log('created', friends.length, 'friends')
+
+Ractive.components.pheux = Pheux.ractiveComponent
+
+var ractive = new Ractive({
+	el : document.querySelector('#container'),
+	template : document.querySelector("#template").innerHTML,
+	data : {
+		friends : friends,
+		rowHeight : 80
+	},
+	magic : true //magic must be true :)
+})
+
+
+	</script>
+</body>
+</html>

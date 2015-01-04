@@ -1,4 +1,7 @@
-pheux
-=====
+Pheux
+===========
+A virtualized scrolling component for RactiveJS
 
-Virtualized Scrolling With Mobile and Reactive Templating In Mind
+Cordova
+-------
+Try it out on a device by running `./cordova-script.sh --device`
