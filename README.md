@@ -1,6 +1,6 @@
 Pheux
 ===========
-A virtualized scrolling component for (RactiveJS)[http://www.ractivejs.org/]
+A virtualized scrolling component for [RactiveJS](http://www.ractivejs.org/)
 
 Demo
 ----
