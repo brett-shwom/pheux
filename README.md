@@ -1,6 +1,6 @@
 Pheux
 ===========
-A virtualized scrolling component for RactiveJS
+A virtualized scrolling component for (RactiveJS)[http://www.ractivejs.org/]
 
 Demo
 ----
@@ -17,9 +17,9 @@ Include pheux as a Ractive component:
 In a ractive template, use pheux like so:
 
 ```
-	<pheux dataTable="{{anArrayOfObjects}}" rowHeight="{{rowHeightInPixels}}">
-		<-- template for each row-->
-	</pheux>
+<pheux dataTable="{{anArrayOfObjects}}" rowHeight="{{rowHeightInPixels}}">
+	<-- template for each row-->
+</pheux>
 ```
 
 Cordova
