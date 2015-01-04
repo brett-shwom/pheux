@@ -6,7 +6,7 @@ Demo
 ----
 Check us out at: http://pheux.herokuapp.com/
 
-Best viewed on Mobile Safari in iOS8.
+Best viewed in Cordova or iOS8 Mobile Safari.
 
 Cordova
 -------
