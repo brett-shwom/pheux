@@ -14,7 +14,7 @@ fi
 gulp compile
 
 cordova create pheux-demo-cordova com.pheuxstein.pheuxdemo pheux-demo-cordova
-cd pheux-cordova
+cd pheux-demo-cordova
 cordova plugin add com.telerik.plugins.wkwebview
 cordova prepare
 cordova platform add ios
@@ -22,7 +22,7 @@ cordova platform add ios
 echo "\nRemoving default cordova www directory"
 rm -rf www/*
 echo "\nCopying lunch to www"
-cp -r ../dest/* www
+cp -r ../dest-demo/* www
 echo "\nCopying codova config"
 cp ../cordova-config.xml config.xml
 cordova build
