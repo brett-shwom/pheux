@@ -22,6 +22,8 @@ In a ractive template, use pheux like so:
 </pheux>
 ```
 
+* [Magic Mode](http://docs.ractivejs.org/latest/magic-mode) must be enabled
+
 Cordova
 -------
 Try it out on a device by running `./cordova-script.sh --device`
