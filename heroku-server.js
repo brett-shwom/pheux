@@ -7,7 +7,7 @@ app.get("/", function (req, res) {
   res.redirect("/index.html");
 });
 
-app.use(express.static(__dirname + '/dest'));
+app.use(express.static(__dirname + '/dest-demo'));
 app.use(errorHandler({
   dumpExceptions: true,
   showStack: true
