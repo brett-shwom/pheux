@@ -82,4 +82,11 @@ header {
   margin-right: 20px;
   text-align :center;
   line-height :50px;
+  background-color: lightblue;
+}
+
+@media (max-resolution: 191dpi)   { 
+  .avatar {
+    border-width:1px;
+  }
 }
