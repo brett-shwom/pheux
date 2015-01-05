@@ -16,7 +16,7 @@ var Pheux = new function () {
     var pheuxTemplate = multilineString(function () {/*
 <div class='pheux' on-scroll='scroll' style='-webkit-transform: translate3d(0,0,0)'>
     <div style='height:{{dataTable.length * rowHeight}}px; -webkit-transform: translate3d(0,0,0)'>
-        <div class='scrollPane' style='-webkit-transform: translate3d(0,{{startIndex * rowHeight - numberOfElementsInStartBuffer * rowHeight}}px,0)'>
+        <div class='scrollPane'><!--this div gets translated in the js-->
             {{#range(elementsInView.length)}}
                 {{#elementsInView[.]}}
                     {{>content}}
@@ -88,13 +88,27 @@ var Pheux = new function () {
 
             this.updateElementsInView()
 
-            this.on( 'scroll', function () {
-                console.log(this.data.startIndex , this.data.rowHeight , this.data.numberOfElementsInStartBuffer , this.data.rowHeight, this.data.startIndex * this.data.rowHeight - this.data.numberOfElementsInStartBuffer * this.data.rowHeight)
-                requestAnimationFrame(function() {
-                    this.computeStartAndEndIndexAndNumberOfElementsInView()
-                    this.updateElementsInView()
-                }.bind(this))
-            })
+            var scroll = function () {
+                //console.log(this._pheuxEl.scrollTop)
+            
+                this.computeStartAndEndIndexAndNumberOfElementsInView()
+                this.updateElementsInView()
+                this._scrollPaneEl.style.webkitTransform = "translate3d(0," + (this.data.startIndex * this.data.rowHeight - this.data.numberOfElementsInStartBuffer * this.data.rowHeight) + "px,0)"
+
+                requestAnimationFrame(scroll)
+
+            }.bind(this)
+
+            scroll()
+
+
+            // this.on( 'scroll', function () {
+            //     console.log(this.data.startIndex , this.data.rowHeight , this.data.numberOfElementsInStartBuffer , this.data.rowHeight, this.data.startIndex * this.data.rowHeight - this.data.numberOfElementsInStartBuffer * this.data.rowHeight)
+            //     requestAnimationFrame(function() {
+            //         this.computeStartAndEndIndexAndNumberOfElementsInView()
+            //         this.updateElementsInView()
+            //     }.bind(this))
+            // })
 
             /* Metrics */
 
