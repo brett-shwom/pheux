@@ -16,7 +16,7 @@ var Pheux = new function () {
     var pheuxTemplate = multilineString(function () {/*
 <div class='pheux' on-scroll='scroll' style='-webkit-transform: translate3d(0,0,0)'>
     <div style='height:{{dataTable.length * rowHeight}}px; -webkit-transform: translate3d(0,0,0)'>
-        <div class='scrollPane'><!--this div gets translated in the js-->
+        <div class='scrollPane' style='position:-webkit-sticky;top:0;'><!--this div gets translated in the js-->
             {{#range(elementsInView.length)}}
                 {{#elementsInView[.]}}
                     {{>content}}
@@ -93,7 +93,9 @@ var Pheux = new function () {
             
                 this.computeStartAndEndIndexAndNumberOfElementsInView()
                 this.updateElementsInView()
-                this._scrollPaneEl.style.webkitTransform = "translate3d(0," + (this.data.startIndex * this.data.rowHeight - this.data.numberOfElementsInStartBuffer * this.data.rowHeight) + "px,0)"
+                //this._scrollPaneEl.style.webkitTransform = "translate3d(0," + (this.data.startIndex * this.data.rowHeight - this.data.numberOfElementsInStartBuffer * this.data.rowHeight) + "px,0)"
+
+                this._scrollPaneEl.style.webkitTransform = "translate3d(0," + -1 * (this._pheuxEl.scrollTop % this.data.rowHeight) + "px,0)"
 
                 requestAnimationFrame(scroll)
 
