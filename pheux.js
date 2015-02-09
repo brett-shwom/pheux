@@ -86,9 +86,6 @@ var Pheux = new function () {
             this.data.startIndex = 0
             this.data.endIndex = this.data.numberOfElementsInView
 
-            this.observe('dataTable', function () {
-                this.updateElementsInView()
-            }.bind(this))
 
             var scroll = function () {
                 //console.log(this._pheuxEl.scrollTop)
