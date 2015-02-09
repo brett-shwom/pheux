@@ -42,11 +42,16 @@ var Pheux = new function () {
     injectPheuxStyle()
 
     function getScrollPercentage(el) {
-        return el.scrollTop / ((el.scrollHeight - el.clientHeight))
+        if ((el.scrollHeight - el.clientHeight) === 0) {
+            return 0
+        }
+        else {
+            return el.scrollTop / ((el.scrollHeight - el.clientHeight))
+        }
+        
     }
 
     function range (n) { //TODO: on a long list, would be bad if this were called multiple times
-        console.log('calling range')
         var i
           , rangeArray = []
         for (i=0;i<n;i++) {
@@ -67,7 +72,6 @@ var Pheux = new function () {
             range : range
         },
         computeStartAndEndIndexAndNumberOfElementsInView : function () {
-            
             this.data.startIndex = Math.max(Math.floor(Math.min(Math.max(getScrollPercentage(this._pheuxEl),0),1) * (this.data.dataTable.length - this.data.numberOfElementsInView)),0)
             this.data.endIndex = this.data.startIndex + this.data.numberOfElementsInView
             
@@ -79,6 +83,8 @@ var Pheux = new function () {
             
         },
         onrender: function () {  //TODO: Teardown this.on('scroll') ?
+
+
             
             this._pheuxEl = this.el.querySelector('.pheux')
             this._scrollPaneEl = this.el.querySelector('.scrollPane')
@@ -86,19 +92,17 @@ var Pheux = new function () {
             this.data.startIndex = 0
             this.data.endIndex = this.data.numberOfElementsInView
 
-
-            var scroll = function () {
-                //console.log(this._pheuxEl.scrollTop)
+            var update = function () {
             
                 this.computeStartAndEndIndexAndNumberOfElementsInView()
                 this.updateElementsInView()
                 this._scrollPaneEl.style.webkitTransform = "translate3d(0," + (this.data.startIndex * this.data.rowHeight - this.data.numberOfElementsInStartBuffer * this.data.rowHeight) + "px,0)"
 
-                requestAnimationFrame(scroll)
+                requestAnimationFrame(update)
 
             }.bind(this)
 
-            scroll()
+            update()
 
 
             // this.on( 'scroll', function () {
@@ -167,3 +171,4 @@ var Pheux = new function () {
     this.ractiveComponent = ractiveComponent
     
 }
+
