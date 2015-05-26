@@ -1,7 +1,7 @@
 {
   "name": "pheux",
   "author": "Brett Shwom",
-  "dependencies": {
+  "devDependencies": {
     "errorhandler": "^1.3.0",
     "express": "^4.10.6",
     "gulp": "^3.8.10",
