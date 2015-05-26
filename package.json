@@ -12,7 +12,6 @@
   },
   "version" : "0.0.4",
   "scripts": {
-    "start": "node heroku-server.js",
-    "postinstall": "gulp compile"
+    "start": "node heroku-server.js"
   }
 }
